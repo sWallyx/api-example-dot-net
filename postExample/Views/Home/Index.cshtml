@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<script>
+    $(function () {
+        log = { "name" : 5}
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Test")",
+            /* jQuery will not send JSON unless you explicitly tell it to */
+            data: JSON.stringify(log),
+            /* contentType is important for MVC to be able to unpack the json */
+            contentType: 'application/json',
+            accept: 'application/json',
+        }).done( function(data) {
+            /* this callback gets used when successful */
+            console.log("response: " + data);
+        }).fail(function (jqxhr, status, error) {
+            /* for debugging: this callback gets used in case of errors */
+            console.log("error :" + error);
+        }).always(function () {
+            /* for debugging: this callback always gets called at the end either way*/
+            console.log("complete");
+        });
+    });
+
+</script>
