@@ -2,5 +2,5 @@
 
 ## Todo´s
 
-[x] Post method
-[ ] Get method
+* [x] Post method
+* [ ] Get method
